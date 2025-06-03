@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Drawing Pad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Tools</h2>
+
+            <div class="tool-group">
+                <h3>Drawing</h3>
+                <label for="colorPicker">Color:</label>
+                <input type="color" id="colorPicker" value="#000000">
+
+                <label for="brushSize">Brush Size:</label>
+                <input type="range" id="brushSize" min="1" max="100" value="5">
+                <span id="brushSizeValue">5</span>
+
+                <button id="penTool" class="tool-btn active">Pen</button>
+                <button id="eraserTool" class="tool-btn">Eraser</button>
+            </div>
+
+            <div class="tool-group">
+                <h3>Image</h3>
+                <label for="imageUpload" class="upload-label tool-btn">Load Image</label>
+                <input type="file" id="imageUpload" accept="image/*">
+                <button id="removeImageBtn" class="tool-btn">Remove Image</button>
+            </div>
+
+            <div class="tool-group">
+                <h3>Text</h3>
+                <input type="text" id="textInput" placeholder="Enter text...">
+                <button id="addTextBtn" class="tool-btn">Add Text</button>
+                <label for="fontSize">Font Size:</label>
+                <input type="range" id="fontSize" min="10" max="100" value="20">
+                <span id="fontSizeValue">20</span>
+            </div>
+
+            <div class="tool-group">
+                <h3>Canvas Actions</h3>
+                <button id="clearDrawingsBtn" class="tool-btn">Clear Drawings</button>
+                <button id="clearAllBtn" class="tool-btn">Clear All</button>
+                <button id="saveBtn" class="tool-btn">Save Image</button>
+            </div>
+
+            <div class="tool-group">
+                <h3>Filters</h3>
+                <button id="grayscaleBtn" class="tool-btn">Grayscale</button>
+            </div>
+        </aside>
+
+        <main class="canvas-area">
+            <canvas id="drawingCanvas"></canvas>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

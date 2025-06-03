@@ -1,0 +1,143 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --light-gray: #f8f9fa;
+    --dark-gray: #343a40;
+    --border-color: #dee2e6;
+    --sidebar-bg: #ffffff;
+    --canvas-bg: #ffffff;
+    --shadow-color: rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* Prevent body scrollbars */
+}
+
+.app-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar {
+    width: 280px;
+    background-color: var(--sidebar-bg);
+    padding: 20px;
+    box-shadow: 2px 0 5px var(--shadow-color);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.tool-group {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #fdfdfd;
+}
+
+.tool-group h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: var(--secondary-color);
+}
+
+.sidebar label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.sidebar input[type="color"],
+.sidebar input[type="range"],
+.sidebar input[type="text"],
+.sidebar button {
+    width: calc(100% - 10px); /* Account for padding/border */
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+}
+
+.sidebar input[type="color"] {
+    height: 40px;
+    padding: 2px; /* Minimal padding for color input */
+}
+.sidebar input[type="text"] {
+    font-size: 0.9em;
+}
+
+.tool-btn, .upload-label {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+    text-align: center;
+    display: inline-block; /* For label */
+    font-size: 0.95em;
+}
+
+.tool-btn:hover, .upload-label:hover {
+    background-color: #0056b3;
+}
+.tool-btn:active, .upload-label:active {
+    transform: scale(0.98);
+}
+
+.tool-btn.active {
+    background-color: #0056b3; /* Darker for active state */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#imageUpload {
+    display: none; /* Hide default file input */
+}
+
+.canvas-area {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--light-gray); /* Background for area around canvas */
+    overflow: auto; /* If canvas is larger than area */
+}
+
+canvas {
+    background-color: var(--canvas-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    cursor: crosshair;
+    max-width: 100%; /* Ensure canvas doesn't overflow its container */
+    max-height: 100%;
+}
+
+/* Span for brush/font size value */
+#brushSizeValue, #fontSizeValue {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
